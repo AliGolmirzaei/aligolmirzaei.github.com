@@ -1,37 +1,108 @@
 <html>
-<body>
+<body><big>
 
-<p>Welcom to Ali Golmirzaei page</p>
-<p>In this page I describe some of my projects. I grouped to them by the company or lab I worked in and then orderd them from most recently involved to leaset recently involved.</p>
-<h2><img src="resources/images/data_logger.JPG" alt="" /></h2>
-<h2>Samitco (<strong>Saman Intelligent Techniques Co)</strong></h2>
-<p>The overall aim of this company is: ECU Calibration (emission, fuel consumption, performance, monitoring and diagnostic, ..), ECU hardware/software development and Technical consulting.</p>
-<p><a href="WebSite">http://samitco.com/WathWeDo.html</a></p>
+<table style="width:100%;">
+<tbody>
+<tr>
+<td style="width: 60%; text-align: left ;">
+<h2>Welcom to Ali Golmirzaei's page</h2>
+<h3>In this page I describe some of my experiences. I grouped them by the company or lab I worked in and then orderd them from most recently involved to leaset recently involved.</h3>
+</td>
+<td style="width: 10%;"><img src="resources/images/me.jpg" alt="" style="max-width:90%;"/></td>
+</tr>
+</tbody>
+</table>
+
+
+<br/>
+<br/>
+<h1>Samitco (Saman Intelligent Techniques Co)</h1>
+<p> The overall aim of this company is: ECU Calibration (emission, fuel consumption, performance, monitoring and diagnostic, ..), ECU hardware/software development and Technical consulting.</p>
+<p><a href="http://samitco.com/WathWeDo.html">WebSite</a></p>
 <h3>Data logger</h3>
-<p>Today a vehcle producer need to test a newly designed vehicle before mass producing it. These tests called fleet test. In this test the company produce noticable number of cars an then send all of them to travel over the whole contry to ensure that vehcle withhand all climates, altitudes, special conditions and etc. These test are normally take long time and they are expensive, thus if a small problem observed in these tests there is no need to reschedual the test. Engineers only fix that small problems and company prodceed to production. But for engineer be able to undestand the problem they need a set of data that on what conditon and state the problem rised. For EMS calibration teams, like the company I have worked on, these data are the ecu variables. To capture such variables one need some hardwares and some skills. Uptill now companies in my country used to send a specialist with the driver on the trip to gather and send data. But this is so much expensive beside lots of side effects such as reduced number of tested vehicles. To solve this the company decided to produce a dataloger to capture the ecu variables with a cheap hardware and without the need of any especial skills to use.</p>
-<p>So far we builded a hardware based on ARM microcontrolers be able to connect to ECU by use of OBD connector and can support both KWP2000 and UDS (CAN protocol) standard. It receive the recording parameterss from a USB cool disk and store the data on the same disk. In addition to ECU communication it comunicates to a GPS module and store the location of the vehcle on disk too.</p>
-<p>Beside these, this data loger is capable of bridging between computer and ECU. So another USB port is embeded on devide to receive data from a computer (by using virtual com port) and send them to ECU.</p>
+<p>Today a vehicle producer need to test a newly designed vehicle before mass producing it. These tests called fleet test. In this test the company produce noticable number of cars and send all of them to travel over the country to make sure that vehicle withstand all climates, altitudes, special conditions and etc. These test are normally take long time and they are expensive, thus if a small problem observed in these tests there is no need to reschedule the test. Engineers only fix that small problems and company continue to production. But for engineer be able to understand the problem they need a set of data that on what condition and state the problem raised. For EMS calibration teams, like the company I have worked on, these data are the ECU variables. To capture such variables one need some hardware and some skills. Up until now companies in my country used to send a specialist with the driver on the trip to gather and send data. But this is so much expensive beside lots of side effects such as reduced number of tested vehicles. To solve this the company decided to produce a data logger to capture the ECU variables with a cheap hardware and without the need of any especial skills to use.</p>
+<p>So far we builded a hardware based on ARM microcontroller be able to connect to ECU by use of OBD connector and can support both KWP2000 and UDS (CAN protocol) standard. It receive the recording parameters from a USB cool disk and store the data on the same disk. In addition to ECU communication it communicates to a GPS module and store the current location of the vehicle on disk too.</p>
+<p>Beside these, this data logger is capable of bridging between computer and ECU. So another USB port added on the device to receive data from a computer (by using virtual com port) and send them to ECU.</p>
 <p>Although its features are well enough now, but the company planned to embed a GSM/GPRS module into the device to send some reports regularly or even make the data live on the internet (so cool).</p>
+<p><img src="resources/images/data_logger.JPG" alt="" style="max-width:50%;"/></p>
 <h3>EF7 engine calibration</h3>
 <p>EF7 is the first irainian engine designed by cooperation of the FEV germany. It is called the national engine because the technology and knowledge to design a cumbustion engine first transferd to iran upon that project. By time passing on the ECU that used on that engine (Bosch ME7) becomes obsolete. So Iran Khodro that has produced EF7 needs to find an alternative. Their choice is Bosch ME17. But ME17 is a different hardware and even with different software so calibration needs to be cary out again. And this is our task.</p>
-<p>Calibration is a long and complex task. In it you need to fill tens of thousands of tables. My contributions on this project are</p>
+<p>Calibration is a long and complex task. In it, you need to fill tens of thousands of tables. My contributions to this project are</p>
 <ul>
-<li>Optimum load by manifold pressure: We need to know how much fuel we should inject to cylender to acheive a perfect combustion. By calculating the amount of air going in the cylender we can calculate the needed fuel. The air amount can be measured or modeled. In modeled system it can be a varibale of throttle openning or manifold pressure.</li>
-<li>Driver desired throttle by torque model: EF7 has a electric powered throttle. So when the driver pushes the gas pedal the ECU decide how much throttle should be opened. In ME17 the pedal value converted to a torque amount and that troque converted to throttle in a torque model.</li>
-<li>Drivability: This means to dont cause vehicle to oscillation and jerk when accelerating and decelarating. Gearbox always has backlash, beside this transmission system has lots of stiffness. When a vehicle switches from polling to trailing or reverse the compresion needs to be opened, then the gap should be filled and eventually compressiong in oposite direction. If you do these steps badly vehicle will jerk badly. And my task was to profile the torque to achive a smooth transition between accelaration and decelaration</li>
-<li>O2 sensor monitoring: any failure on o2 senso should be catched by ECU before any major emission</li>
-<li>misfire detection: Missfire is a condition when fuel doesn't burn on cylender by any means. It cause emission on low rates and catalyst melting in high rates. ECU shout detect this fault and turn the MIL lamp on or cut off the fuel of cylender depending on the amount of missfires</li>
-<li>cold start, hot start, restart: On these condition the amount of fuels that burn in cylender is not equal to what you injected, so the increase or decrese should be calculated and considered on injection</li>
-<li>catalyst heating, warm up: Components of engine especially catalyst won't work well till they warmed up enough. ECU can speed up this by retarding the spark and increasing the exhust gas temperature</li>
+<li>Optimum load by manifold pressure: We need to know how much fuel we should inject into the cylinder to achieve a perfect combustion. By calculating the amount of air going in the cylinder we can calculate the needed fuel. The air amount can be measured or modeled. In the modeled system it can be a variable of throttle opening or manifold pressure.</li>
+<li>Driver desired throttle by torque model: EF7 has an electrically powered throttle. So when the driver pushes the gas pedal the ECU decide how much throttle should be opened. In ME17 the pedal value converted to a torque amount and that torque converted to throttle in a torque model.</li>
+<li>Drivability: This means to don't cause the vehicle to oscillation and jerk when accelerating and decelerating. Gearbox always has backlash, beside this transmission system has lots of stiffness. When a vehicle switches from polling to trailing or reverse the compression needs to be opened, then the gap should be filled and eventually compression in the oposite direction. If you do these steps badly vehicle will jerk badly. And my task was to profile the torque to achieve a smooth transition between acceleration and deceleration</li>
+<li>O2 sensor monitoring: any failure on o2 sensor should be cached by ECU before any major emission</li>
+<li>Misfire detection: Missfire is a condition when fuel doesn't burn on the cylinder by any means. It causes emission on low rates and catalyst melting in high rates. ECU shout detect this fault and turn the MIL lamp on or cut off the fuel cylinder depending on the number of misfires</li>
+<li>Cold start, hot start, restart: On this condition, the amount of fuels that burn in cylinder is not equal to what you injected, so the increase or decrease should be calculated and considered on injection</li>
+<li>Catalyst heating, warm up: Components of engine especially catalyst won't work well till they warmed up enough. ECU can speed up this by retarding the spark and increasing the exhaust gas temperature</li>
 </ul>
-<h2>Zabanshenas</h2>
+<table style="width:90%;">
+<tbody>
+<tr>
+<td style="width: 30%;"><img src="resources/images/itrak_1.jpg" alt="" style="max-width:90%;"/></td>
+<td style="width: 30%;"><img src="resources/images/itrak_3.jpg" alt="" style="max-width:90%;"/></td>
+<td style="width: 30%;"><img src="resources/images/itrak_2.jpg" alt="" style="max-width:90%;"/></td>
+</tr>
+<tr>
+<td style="width: 30%;">ITRAK test bench</td>
+<td style="width: 30%;">ITRAK test bench</td>
+<td style="width: 30%;">ITRAK test bench</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<br/>
+<table style="width:60%;">
+<tbody>
+<tr>
+<td style="width: 90%;"><img src="resources/images/drivability_1.jpg" alt="" style="max-width:90%;"/></td>
+</tr>
+<tr>
+<td style="width: 90%;">Engine rpm with/without drivability</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<br/>
+<h1>Zabanshenas</h1>
 <p>The overall aim of this company was to create an English learning application. This application is based on listening to a transcript and it has lots of features like text audio/video alignment, word highlighting, flash cards, lots of great reports and etc.</p>
 <h3>Android application development</h3>
-<p>I developed android application for the company. I prefer to illustrate my work by images rather than text</p>
+<p>I developed android application for the company. I prefer to illustrate my work by images rather than text.</p>
+<table style="width:90%;">
+<tbody>
+<tr>
+<td style="width: 20%;"><img src="resources/images/App_1.png" alt="" style="max-width:90%;"/></td>
+<td style="width: 20%;"><img src="resources/images/App_2.png" alt="" style="max-width:90%;"/></td>
+<td style="width: 20%;"><img src="resources/images/App_3.png" alt="" style="max-width:90%;"/></td>
+<td style="width: 20%;"><img src="resources/images/App_6.png" alt="" style="max-width:90%;"/></td>
+</tr>
+<tr>
+<td style="width: 20%;">Main window</td>
+<td style="width: 20%;">Chapters window</td>
+<td style="width: 20%;">Lesson window</td>
+<td style="width: 20%;">Flash card window</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<br/>
+<table  width="90%;">
+<tbody>
+<tr>
+<td style="width: 40%;"><img src="resources/images/App_4.png" alt="" style="max-width:90%;"/></td>
+<td style="width: 40%;"><img src="resources/images/App_5.png" alt="" style="max-width:90%;"/></td>
+</tr>
+<tr>
+<td style="width: 40%;">Statistics window (streak)</td>
+<td style="width: 40%;">Statistics window (listen time)</td>
+</tr>
+</tbody>
+</table>
 <h3>Resource preparing tool</h3>
-<p>All contents that showed in app needed to be prepared. It is also desired to publish some of the contents in website too. In addition to thse some information needed to extracted like list of courses. For website we use JEKYLL. So I developed a python application with relatively same input as JEKYLL that satisfies our needs like resource encryption, create a database containing all of words used in resources, text audio alighnment for hight lighting the text in sync with audio, app faq and many more. We also create a git for our contents and link this tool with it. It means after a content addition or change it automatically call the preparing tool and after that it deploy the content to server, a fully automatic tool chain. really cool.</p>
+<p>extracted from a list of courses. For website we use JEKYLL. So I developed a python application with relatively same input as JEKYLL that satisfies our needs like resource encryption, create a database containing all of the words used in resources, text audio alignment for hight lighting the text in sync with audio, app faq and many more. We also create a git for our contents and link this tool to it. It means after a content addition or changes it automatically call the preparing tool and after that, it deploys the content to the server, a fully automatic toolchain. really cool.I developed android application for the company. I prefer to illustrate my work by images rather than text.</p>
 <h3>Server sided codes</h3>
-<p>In app we offer lots of online features. Some of them are listed below:</p>
+<p>In application, we offer lots of online features. Some of them are listed below:</p>
 <ul>
 <li>Authentication and signup</li>
 <li>Latest course list and course selection</li>
@@ -41,35 +112,242 @@
 <li>Forum visualization</li>
 <li>Auto update</li>
 </ul>
-<p>These features powered by some php codes that I developed.</p>
+<p>These features powered by some PHP codes that I developed.</p>
+<br/>
+<br/>
 <h2>Faran fan arya</h2>
-<p>The overall aim of this company was to design, manufacture, and develop of CNC machines and automation technologies. My main work on this company was to develop softwares and electronic equipments. The reason that I decided to do thing out of my study was that all of company members were mechanical engineers and because I was one of the company founder I wanted it to survive so I pick a work that no one accept. Unfortunatly company went bankrupt but at least I learned a lot.</p>
-<p>Our most bold work there was creation of pc baseed 3-4axis cnc machines. I developed some electronics boards (mostly interfaces) to bridge between motor's and actuator's drivers and pc. I also customize Linuxcnc as gcode parser, machine controller and gui.</p>
-<p>Beside these I design and manufacture a digitalizer probe that used for automatic tool length measurment and engraving surfac detection with use of python scripts i embed in linuxcnc. Engraving surfac detection means to map a 2D machining plan (gcode) to a nonPlanar surface (3d plan)<br /></p>
-<h2>MS. Project - swarm robotic platform</h2>
+<p>The overall aim of this company was to design, manufacture, and develop of CNC machines and automation technologies. My main work on this company was to develop software and electronic equipment. The reason that I decided to do thing out of my study was that all of the company members were mechanical engineers and because I was one of the company funders I wanted it to survive so I pick a work that no one accepts. Unfortunately, the company went bankrupt but at least I learned a lot.</p>
+<p>Our most bold work there was the creation of pc based 3-4axis CNC machines. I developed some electronics boards (mostly interfaces) to bridge between motor's and actuator's drivers and pc. I also customize Linuxcnc as G-code parser, machine controller, and GUI.</p>
+<p>Beside these, I design and manufacture a digitizer probe that used for automatic tool length measurement and engraving surface detection with the use of python scripts I embed in Llinuxcnc. Engraving surface detection means to map a 2D machining plan (G-code) to a nonPlanar surface (3d plan)</p>
+
+<p><img src="resources/images/faran_1.jpg" alt="" style="max-width:50%;"/></p>
+
+<p></p>
+<table style="width:90%;">
+<tbody>
+<tr>
+<td style="width: 45%;"><video controls="controls" style="width:90%;"><source src="resources/videos/faran_vid_1.mp4" /></video></td>
+<td style="width: 45%;"><img src="resources/images/faran_2.jpg" alt="" style="max-width:90%;"/></td>
+</tr>
+<tr>
+<td style="width: 45%;">Video of cnc</td>
+<td style="width: 45%;">Final produced part</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<br/>
+<p>It would be fun to take a look at the history of the machine </p>
+
+<table style="width:30%;">
+<tbody>
+<tr>
+<td ><img src="resources/images/faran_3.jpg" alt="" style="max-width:90%;"/></td>
+</tr>
+<tr>
+<td >First generation (almost didn't work :D )</td>
+</tr>
+</tbody>
+</table>
+<br/>
+
+<table style="width:60%;">
+<tbody>
+<tr><tr/>
+<tr>
+<td style="width: 50%;"><img src="resources/images/faran_4.jpg" alt="" style="max-width:90%;"/></td>
+<td style="width: 50%;"><img src="resources/images/faran_5.jpg" alt="" style="max-width:90%;"/></td>
+</tr>
+<tr>
+<td style="width: 50%;">Second generation</td>
+<td style="width: 50%;">Output result of second gen</td>
+</tr>
+</tbody>
+</table>
+<br/>
+
+<table style="width:60%;">
+<tbody>
+<tr><tr/>
+<tr>
+<td style="width: 50%;"><img src="resources/images/faran_6.jpg" alt="" style="max-width:90%;"/></td>
+<td style="width: 50%;"><img src="resources/images/faran_7.jpg" alt="" style="max-width:90%;"/></td>
+</tr>
+<tr>
+<td style="width: 50%;">Third generation</td>
+<td style="width: 50%;">Output result of third gen</td>
+</tr>
+</tbody>
+</table>
+<br/>
+
+<table style="width:90%;">
+<tbody>
+<tr><tr/>
+<tr>
+<td style="width: 30%;"><img src="resources/images/faran_8.jpg" alt="" style="max-width:90%;"/></td>
+<td style="width: 30%;"><img src="resources/images/faran_9.jpg" alt="" style="max-width:90%;"/></td>
+<td style="width: 30%;"><img src="resources/images/faran_10.jpg" alt="" style="max-width:90%;"/></td>
+</tr>
+<tr>
+<td style="width: 30%;">Forth generation</td>
+<td style="width: 30%;">Output result of fifth gen</td>
+<td style="width: 30%;">Output result of fifth gen</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<p>Although we had 5th and 6th generation, I don't have picture of them</p>
+
+<br/>
+<br/>
+<h1>MS. Project - swarm robotic platform</h1>
 <p><em>Design and construction of two-wheeled mobile robot platform with the ability to connect to other robots with two rotational degrees of freedom.</em></p>
-<p>By this project we achieved a low cost swarm robot platform that handles the general problems of an experimental research and allows the researchers to focus on their main context. This means that platform controlers would work in a cascade mode. The inner controllers are in platform and the higher ones are in reasercher's area. Our main controllers on platform are battery managment system and dc motor's PID controllers. Unfortunatli because of not providing any fund by univirsity I was only able to create a prototype by my own money.</p>
-<p>Below video contain:</p>
+<p>By this project, we achieved a low-cost swarm robot platform that handles the general problems of an experimental research and allows the researchers to focus on their main context. This means that platform controllers would work in a cascade mode. The inner controllers are on the platform and the higher ones are in researcher's area. Our main controllers on the platform are battery management system and dc motor's PID controllers. Unfortunately, because of not providing any fund by the university I was only able to create a prototype with my own money.</p>
+
+<p>Below video contains:</p>
 <ul>
-<li>PCB assembly</li>
-<li>Body assembly</li>
-<li>Actuator test</li>
+<li>PCB assembly (time 0 to 2:37)</li>
+<li>Plexy bending (time 2:37 to 3:22)</li>
+<li>Body assembly (time 3:22 to 4:17)</li>
+<li>Actuator test (time 4:17 to end)</li>
 </ul>
 <p>File size is 85MB</p>
-<h2>Nasir Virtual Reality Laboratory (VirLab)</h2>
-<p>Nasir virlab is a labaratory in KNTU university. I first started working in the lab because of my intrest on the domain. Our first project was a small motion simulator and we designed a basic AI vehicle for it that only followed path. After this project, lab develope the project to a more broad domain and also got sponserships from a company (bus driving company). As a result they planned to produce various bus simulators for the purpos of training. I got a part on designing AI vehicle's engine pursue to my past contribution. I cooperated with a team of students created an AI engine with path planning, path following (AI vehicles had simplified dynamic model, So we controll them with a reallistic stearing and traction), collision avoiding (anticipating position and reaction to a chance of collision) and respecting traffic rules like traffic lights. Unfortunatly I dont have any video of my work but I have some pictures of the virtual environment.</p>
-<h2>BS. project - Heart signal proccessing</h2>
-<p><em>Design and Computerized Implementation of a Low-Computation-Burden, Noise-Robust and Device-Independent Cardiac System Electro-mechanical Signal Processor aimed for Detection of RAT Heart Signal Events-Delineation and Alternans Calculation.</em></p>
-<p>By this project we achieved a program that could be run on low speed processors like cell phone processors. Actually our goal was to prepare a system to allow unskilled persons in rural medical places be able to interpret patient's heart state. The first stage on this issue was to delineate the signal and after that some basic statistical analysis and some more complex pattern recognitions. My task was the first part, delineation. I used signal differential as my main measure. The differentiation carried out by rolling average to eliminate noise. It also eliminate baseline changing of the signal, a common issue on signals. Then it uses a schmitt trigger (hystersis) with a dynamic threashold. This will end to detection of signal pickes. Then furthur analysis would cary out to validate the point and also detect other events on the signal.</p>
 
-</body>
+<div>
+<video controls="controls" style="width:50%;"><source src="resources/videos/swarm_vid_1.mp4" />
+</div>
+
+<br/>
+<br/>   
+
+<table  width="90%;">
+<tbody>
+<tr>
+<td style="width: 30%;"><img src="resources/images/swarm_1.jpg" alt="" style="max-width:90%;"/></td>
+<td style="width: 30%;"><img src="resources/images/swarm_2.jpg" alt="" style="max-width:90%;"/></td>
+<td style="width: 30%;"><img src="resources/images/swarm_3.jpg" alt="" style="max-width:90%;"/></td>
+</tr>
+<tr>
+<td style="width: 30%;">Total assembly</td>
+<td style="width: 30%;">One of the PCBs</td>
+<td style="width: 30%;">Connector</td>
+</tr>
+</tbody>
+</table>
+<br/>
+
+<table  width="60%;">
+<tbody>
+<tr>
+<td style="width: 30%;"><img src="resources/images/swarm_4.png" alt="" style="max-width:90%;"/></td>
+<td style="width: 30%;" rowspan="3"><img src="resources/images/swarm_6.jpg" alt="" style="max-width:50%;"/></td>
+</tr>
+<tr>
+<td style="width: 30%;">Sample configuration</td>
+</tr>
+<tr>
+<td style="width: 30%;"><img src="resources/images/swarm_5.jpg" alt="" style="max-width:90%;"/></td>
+</tr>
+<tr>
+<td style="width: 30%;">Platform wheel</td>
+<td style="width: 30%;">Sample configuration to climb</td>
+</tr>
+</tbody>
+</table>
+
+<br/>
+<br/>
+<h1>Nasir Virtual Reality Laboratory (VirLab)</h1>
+<p>Nasir Virlab is a laboratory at KNTU university. I first started working in the lab because of my interest in the domain. Our first project was a small motion simulator and we designed a basic AI vehicle for it that only followed a path. After this project, lab develope the project to a more broad domain and also got sponsorships from a company (bus driving company). As a result, they planned to produce various bus simulators for the purpose of training. I got a part on designing AI vehicle's engine pursue to my past contribution. I cooperated with a team of students created an AI engine with path planning, path following (AI vehicles had simplified the dynamic model, So we control them with a realistic steering and traction), collision avoiding (anticipating position and reaction to a chance of collision) and respecting traffic rules like traffic lights. Unfortunately, I don't have any video of my work but I have some pictures of the virtual environment.</p>
+<p><a href="http://www.drivingsimulator.ir/">WebSite (Not english)</a></p>
+<table  width="90%;">
+<tbody>
+<tr>
+<td style="width: 30%;"><img src="resources/images/simulator_1.jpg" alt="" style="max-width:90%;"/></td>
+<td style="width: 30%;"><img src="resources/images/simulator_2.jpg" alt="" style="max-width:90%;"/></td>
+<td style="width: 30%;"><img src="resources/images/simulator_3.jpg" alt="" style="max-width:90%;"/></td>
+</tr>
+<tr>
+<td style="width: 30%;">Virtual environment</td>
+<td style="width: 30%;">Virtual environment</td>
+<td style="width: 30%;">One of the simulators</td>
+</tr>
+</tbody>
+</table>
+
+<br/>
+<br/>
+<h1>BS. project - Heart signal proccessing</h1>
+<p><em>Design and Computerized Implementation of a Low-Computation-Burden, Noise-Robust and Device-Independent Cardiac System Electro-mechanical Signal Processor aimed for Detection of RAT Heart Signal Events-Delineation and Alternans Calculation.</em></p>
+<p>Through this project, we achieved a program that could be run on low-speed processors like cell phone processors. Actually, our goal was to prepare a system to allow unskilled persons in rural medical places be able to interpret patient's heart state. The first stage on this issue was to delineate the signal and after that some basic statistical analysis and some more complex pattern recognition. My task was the first part, delineation. I used signal differential as my main measure. The differentiation carried out by rolling average to eliminate noise. It also eliminates baseline changing of the signal, a common issue on signals. Then it uses a Schmitt trigger (hysteresis) with a dynamic threshold. This will end to detection of the signal picked. Then further analysis would carry out to validate the point and also detect other events on the signal.</p>
+<table  width="80%;">
+<tbody>
+<tr>
+<td style="width: 40%;"><img src="resources/images/heart_1.png" alt="" style="max-width:90%;"/></td>
+<td style="width: 40%;"><img src="resources/images/heart_2.png" alt="" style="max-width:90%;"/></td>
+</tr>
+<tr>
+<td style="width: 40%;">Dynamic threashold</td>
+<td style="width: 40%;">Pick point detection</td>
+</tr>
+<tr>
+<td style="width: 40%;"><img src="resources/images/heart_3.png" alt="" style="max-width:90%;"/></td>
+<td style="width: 40%;"><img src="resources/images/heart_4.png" alt="" style="max-width:90%;"/></td>
+</tr>
+<tr>
+<td style="width: 40%;">Q and S detection by use of rolling std</td>
+<td style="width: 40%;">QRS detection</td>
+</tr>
+<tr>
+<td style="width: 40%;"><img src="resources/images/heart_5.png" alt="" style="max-width:90%;"/></td>
+<td style="width: 40%;"><img src="resources/images/heart_6.png" alt="" style="max-width:90%;"/></td>
+</tr>
+<tr>
+<td style="width: 40%;">P and T location</td>
+<td style="width: 40%;">uncontinues baseline elimination for detection of P and T</td>
+</tr>
+</tbody>
+</table>
+<br/>
+<br/>
+
+<table  width="40%;">
+<tbody>
+<tr>
+<td style="width: 90%;"><img src="resources/images/heart_7.png" alt="" style="max-width:90%;"/></td>
+</tr>
+<tr>
+<td style="width: 90%;">Final P and T detection results</td>
+</tr>
+</tbody>
+</table>
+
+
+</big></body>
 <style>
 img {
   display: block;
-  max-width:230px;
-  max-height:95px;
+  
+    margin-left: auto;
+    margin-right: auto;
   width: auto;
   height: auto;
+}
+video {
+  display: block;
+  
+    margin-left: auto;
+    margin-right: auto;
+  width: auto;
+  height: auto;
+  }
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+td {
+    text-align: center ;
 }
 </style>
 </html>
