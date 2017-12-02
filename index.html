@@ -1,7 +1,61 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-</body>
-</html>
+
+<p>Welcom to Ali Golmirzaei page</p>
+<p>In this page I describe some of my projects. I grouped to them by the company or lab I worked in and then orderd them from most recently involved to leaset recently involved.</p>
+<h2><img src="resources/images/data_logger.JPG" alt="" /></h2>
+<h2>Samitco (<strong>Saman Intelligent Techniques Co)</strong></h2>
+<p>The overall aim of this company is: ECU Calibration (emission, fuel consumption, performance, monitoring and diagnostic, ..), ECU hardware/software development and Technical consulting.</p>
+<p><a href="WebSite">http://samitco.com/WathWeDo.html</a></p>
+<h3>Data logger</h3>
+<p>Today a vehcle producer need to test a newly designed vehicle before mass producing it. These tests called fleet test. In this test the company produce noticable number of cars an then send all of them to travel over the whole contry to ensure that vehcle withhand all climates, altitudes, special conditions and etc. These test are normally take long time and they are expensive, thus if a small problem observed in these tests there is no need to reschedual the test. Engineers only fix that small problems and company prodceed to production. But for engineer be able to undestand the problem they need a set of data that on what conditon and state the problem rised. For EMS calibration teams, like the company I have worked on, these data are the ecu variables. To capture such variables one need some hardwares and some skills. Uptill now companies in my country used to send a specialist with the driver on the trip to gather and send data. But this is so much expensive beside lots of side effects such as reduced number of tested vehicles. To solve this the company decided to produce a dataloger to capture the ecu variables with a cheap hardware and without the need of any especial skills to use.</p>
+<p>So far we builded a hardware based on ARM microcontrolers be able to connect to ECU by use of OBD connector and can support both KWP2000 and UDS (CAN protocol) standard. It receive the recording parameterss from a USB cool disk and store the data on the same disk. In addition to ECU communication it comunicates to a GPS module and store the location of the vehcle on disk too.</p>
+<p>Beside these, this data loger is capable of bridging between computer and ECU. So another USB port is embeded on devide to receive data from a computer (by using virtual com port) and send them to ECU.</p>
+<p>Although its features are well enough now, but the company planned to embed a GSM/GPRS module into the device to send some reports regularly or even make the data live on the internet (so cool).</p>
+<h3>EF7 engine calibration</h3>
+<p>EF7 is the first irainian engine designed by cooperation of the FEV germany. It is called the national engine because the technology and knowledge to design a cumbustion engine first transferd to iran upon that project. By time passing on the ECU that used on that engine (Bosch ME7) becomes obsolete. So Iran Khodro that has produced EF7 needs to find an alternative. Their choice is Bosch ME17. But ME17 is a different hardware and even with different software so calibration needs to be cary out again. And this is our task.</p>
+<p>Calibration is a long and complex task. In it you need to fill tens of thousands of tables. My contributions on this project are</p>
+<ul>
+<li>Optimum load by manifold pressure: We need to know how much fuel we should inject to cylender to acheive a perfect combustion. By calculating the amount of air going in the cylender we can calculate the needed fuel. The air amount can be measured or modeled. In modeled system it can be a varibale of throttle openning or manifold pressure.</li>
+<li>Driver desired throttle by torque model: EF7 has a electric powered throttle. So when the driver pushes the gas pedal the ECU decide how much throttle should be opened. In ME17 the pedal value converted to a torque amount and that troque converted to throttle in a torque model.</li>
+<li>Drivability: This means to dont cause vehicle to oscillation and jerk when accelerating and decelarating. Gearbox always has backlash, beside this transmission system has lots of stiffness. When a vehicle switches from polling to trailing or reverse the compresion needs to be opened, then the gap should be filled and eventually compressiong in oposite direction. If you do these steps badly vehicle will jerk badly. And my task was to profile the torque to achive a smooth transition between accelaration and decelaration</li>
+<li>O2 sensor monitoring: any failure on o2 senso should be catched by ECU before any major emission</li>
+<li>misfire detection: Missfire is a condition when fuel doesn't burn on cylender by any means. It cause emission on low rates and catalyst melting in high rates. ECU shout detect this fault and turn the MIL lamp on or cut off the fuel of cylender depending on the amount of missfires</li>
+<li>cold start, hot start, restart: On these condition the amount of fuels that burn in cylender is not equal to what you injected, so the increase or decrese should be calculated and considered on injection</li>
+<li>catalyst heating, warm up: Components of engine especially catalyst won't work well till they warmed up enough. ECU can speed up this by retarding the spark and increasing the exhust gas temperature</li>
+</ul>
+<h2>Zabanshenas</h2>
+<p>The overall aim of this company was to create an English learning application. This application is based on listening to a transcript and it has lots of features like text audio/video alignment, word highlighting, flash cards, lots of great reports and etc.</p>
+<h3>Android application development</h3>
+<p>I developed android application for the company. I prefer to illustrate my work by images rather than text</p>
+<h3>Resource preparing tool</h3>
+<p>All contents that showed in app needed to be prepared. It is also desired to publish some of the contents in website too. In addition to thse some information needed to extracted like list of courses. For website we use JEKYLL. So I developed a python application with relatively same input as JEKYLL that satisfies our needs like resource encryption, create a database containing all of words used in resources, text audio alighnment for hight lighting the text in sync with audio, app faq and many more. We also create a git for our contents and link this tool with it. It means after a content addition or change it automatically call the preparing tool and after that it deploy the content to server, a fully automatic tool chain. really cool.</p>
+<h3>Server sided codes</h3>
+<p>In app we offer lots of online features. Some of them are listed below:</p>
+<ul>
+<li>Authentication and signup</li>
+<li>Latest course list and course selection</li>
+<li>Data backup and restore</li>
+<li>Contact us</li>
+<li>Annouymous error reporting</li>
+<li>Forum visualization</li>
+<li>Auto update</li>
+</ul>
+<p>These features powered by some php codes that I developed.</p>
+<h2>Faran fan arya</h2>
+<p>The overall aim of this company was to design, manufacture, and develop of CNC machines and automation technologies. My main work on this company was to develop softwares and electronic equipments. The reason that I decided to do thing out of my study was that all of company members were mechanical engineers and because I was one of the company founder I wanted it to survive so I pick a work that no one accept. Unfortunatly company went bankrupt but at least I learned a lot.</p>
+<p>Our most bold work there was creation of pc baseed 3-4axis cnc machines. I developed some electronics boards (mostly interfaces) to bridge between motor's and actuator's drivers and pc. I also customize Linuxcnc as gcode parser, machine controller and gui.</p>
+<p>Beside these I design and manufacture a digitalizer probe that used for automatic tool length measurment and engraving surfac detection with use of python scripts i embed in linuxcnc. Engraving surfac detection means to map a 2D machining plan (gcode) to a nonPlanar surface (3d plan)<br /></p>
+<h2>MS. Project - swarm robotic platform</h2>
+<p><em>Design and construction of two-wheeled mobile robot platform with the ability to connect to other robots with two rotational degrees of freedom.</em></p>
+<p>By this project we achieved a low cost swarm robot platform that handles the general problems of an experimental research and allows the researchers to focus on their main context. This means that platform controlers would work in a cascade mode. The inner controllers are in platform and the higher ones are in reasercher's area. Our main controllers on platform are battery managment system and dc motor's PID controllers. Unfortunatli because of not providing any fund by univirsity I was only able to create a prototype by my own money.</p>
+<p>Below video contain:</p>
+<ul>
+<li>PCB assembly</li>
+<li>Body assembly</li>
+<li>Actuator test</li>
+</ul>
+<p>File size is 85MB</p>
+<h2>Nasir Virtual Reality Laboratory (VirLab)</h2>
+<p>Nasir virlab is a labaratory in KNTU university. I first started working in the lab because of my intrest on the domain. Our first project was a small motion simulator and we designed a basic AI vehicle for it that only followed path. After this project, lab develope the project to a more broad domain and also got sponserships from a company (bus driving company). As a result they planned to produce various bus simulators for the purpos of training. I got a part on designing AI vehicle's engine pursue to my past contribution. I cooperated with a team of students created an AI engine with path planning, path following (AI vehicles had simplified dynamic model, So we controll them with a reallistic stearing and traction), collision avoiding (anticipating position and reaction to a chance of collision) and respecting traffic rules like traffic lights. Unfortunatly I dont have any video of my work but I have some pictures of the virtual environment.</p>
+<h2>BS. project - Heart signal proccessing</h2>
+<p><em>Design and Computerized Implementation of a Low-Computation-Burden, Noise-Robust and Device-Independent Cardiac System Electro-mechanical Signal Processor aimed for Detection of RAT Heart Signal Events-Delineation and Alternans Calculation.</em></p>
+<p>By this project we achieved a program that could be run on low speed processors like cell phone processors. Actually our goal was to prepare a system to allow unskilled persons in rural medical places be able to interpret patient's heart state. The first stage on this issue was to delineate the signal and after that some basic statistical analysis and some more complex pattern recognitions. My task was the first part, delineation. I used signal differential as my main measure. The differentiation carried out by rolling average to eliminate noise. It also eliminate baseline changing of the signal, a common issue on signals. Then it uses a schmitt trigger (hystersis) with a dynamic threashold. This will end to detection of signal pickes. Then furthur analysis would cary out to validate the point and also detect other events on the signal.</p>
